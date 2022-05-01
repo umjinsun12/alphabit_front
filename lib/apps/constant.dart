@@ -1,0 +1,1 @@
+const String SERVER_URL="https://algotrading-backend-5n4is.ondigitalocean.app";
