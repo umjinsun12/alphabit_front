@@ -18,10 +18,10 @@ class RegisterController extends FxController {
   late String _name='', _email='', _password='';
 
   RegisterController() {
-    this.nameTE = TextEditingController();
-    this.emailTE = TextEditingController();
-    this.passwordTE = TextEditingController();
-    this.passwordConfirmTE = TextEditingController();
+    nameTE = TextEditingController();
+    emailTE = TextEditingController();
+    passwordTE = TextEditingController();
+    passwordConfirmTE = TextEditingController();
   }
 
   static Future<dynamic> register_user(_email, _name, _password) async {
@@ -88,7 +88,7 @@ class RegisterController extends FxController {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => LogInScreen(),
+            builder: (context) => const LogInScreen(),
           ),
         )
       });
@@ -97,14 +97,7 @@ class RegisterController extends FxController {
   }
 
   void goToLogInScreen() {
-    // Navigator.pushReplacement(
-    //   context,
-    //   MaterialPageRoute(
-    //     builder: (context) => LogInScreen(),
-    //   ),
-    // );
     Navigator.pop(context);
-
   }
 
   void goBack() {

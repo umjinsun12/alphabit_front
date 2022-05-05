@@ -1,3 +1,4 @@
+import 'package:alphabit_front/apps/controller/api_management_controller.dart';
 import 'package:alphabit_front/apps/model/apikey_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutx/flutx.dart';
@@ -7,20 +8,18 @@ import 'package:alphabit_front/theme/custom_theme.dart';
 import 'package:alphabit_front/widgets/custom/loading_effect.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../controller/analytics_controller.dart';
-
-class AnalyticsScreen extends StatefulWidget {
-  AnalyticsScreen({Key? key}) : super(key: key);
+class ApiManagementScreen extends StatefulWidget {
+  const ApiManagementScreen({Key? key}) : super(key: key);
 
   @override
-  _AnalyticsScreenState createState() => _AnalyticsScreenState();
+  _ApiManagementScreenState createState() => _ApiManagementScreenState();
 }
 
-class _AnalyticsScreenState extends State<AnalyticsScreen> {
+class _ApiManagementScreenState extends State<ApiManagementScreen> {
   late ThemeData theme;
   late CustomTheme customTheme;
 
-  late AnalyticsController controller;
+  late ApiManagementController controller;
 
 
 
@@ -30,13 +29,12 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
     theme = AppTheme.theme;
     customTheme = AppTheme.customTheme;
 
-    controller = FxControllerStore.putOrFind(AnalyticsController());
+    controller = FxControllerStore.putOrFind(ApiManagementController());
   }
 
 
   refresh() {
     setState(() {
-      print('refresh!!!');
       controller.fetchData();
     });
   }
@@ -96,27 +94,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
   }
 
 
-  SfCartesianChart _buildSingleChart(Color color, List<SplineAreaData> data) {
-    return SfCartesianChart(
-      plotAreaBorderWidth: 0,
-      margin: EdgeInsets.zero,
-      primaryXAxis: NumericAxis(
-          isVisible: false,
-          interval: 1,
-          majorGridLines: MajorGridLines(width: 0),
-          edgeLabelPlacement: EdgeLabelPlacement.shift),
-      primaryYAxis: NumericAxis(
-          isVisible: false,
-          axisLine: AxisLine(width: 0),
-          majorTickLines: MajorTickLines(size: 0)),
-      series: controller.getAreaSeries(color, data),
-      tooltipBehavior: TooltipBehavior(enable: true),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    return FxBuilder<AnalyticsController>(
+    return FxBuilder<ApiManagementController>(
         controller: controller,
         builder: (controller) {
           return _buildBody();

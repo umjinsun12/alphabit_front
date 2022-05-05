@@ -1,4 +1,4 @@
-import 'package:alphabit_front/apps/controller/api_controller.dart';
+import 'package:alphabit_front/apps/controller/api_register_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutx/flutx.dart';
@@ -18,7 +18,7 @@ class _ApiRegisterScreenState extends State<ApiRegisterScreen> {
   late ThemeData theme;
   late CustomTheme customTheme;
 
-  late ApiController controller;
+  late ApiRegisterController controller;
   late OutlineInputBorder outlineInputBorder;
 
 
@@ -28,9 +28,9 @@ class _ApiRegisterScreenState extends State<ApiRegisterScreen> {
     theme = AppTheme.theme;
     customTheme = AppTheme.customTheme;
 
-    controller = FxControllerStore.putOrFind(ApiController());
+    controller = FxControllerStore.putOrFind(ApiRegisterController());
 
-    outlineInputBorder = OutlineInputBorder(
+    outlineInputBorder = const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(4)),
       borderSide: BorderSide(
         color: Colors.transparent,
@@ -42,7 +42,7 @@ class _ApiRegisterScreenState extends State<ApiRegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return FxBuilder<ApiController>(
+    return FxBuilder<ApiRegisterController>(
         controller: controller,
         builder: (controller) {
           return Scaffold(

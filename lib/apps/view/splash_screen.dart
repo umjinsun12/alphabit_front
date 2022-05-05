@@ -43,6 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 colorScheme: theme.colorScheme
                     .copyWith(secondary: customTheme.fitnessPrimary.withAlpha(40))),
             builder: (context, child) {
+              print('dic!!!');
               return Directionality(
                   textDirection: AppTheme.textDirection, child: child!);
             },
@@ -76,7 +77,6 @@ class _SplashScreenState extends State<SplashScreen> {
                           FxSpacing.height(40),
                           FxButton.block(
                             onPressed: () {
-                              print('sadfsdf');
                               controller.goToLogInScreen();
                             },
                             backgroundColor: customTheme.fitnessPrimary,

@@ -5,14 +5,14 @@ import 'package:flutx/flutx.dart';
 
 import '../view/full_app.dart';
 
-class ApiController extends FxController {
+class ApiRegisterController extends FxController {
   late TextEditingController publicKeyTE, privateKeyTE;
   GlobalKey<FormState> formKey = GlobalKey();
   late String _publicKey='', _privateKey='';
 
-  ApiController() {
-    this.publicKeyTE = TextEditingController();
-    this.privateKeyTE = TextEditingController();
+  ApiRegisterController() {
+    publicKeyTE = TextEditingController();
+    privateKeyTE = TextEditingController();
   }
 
   String? validatePublicKey(String? text) {
@@ -33,24 +33,18 @@ class ApiController extends FxController {
     return null;
   }
 
-  @override
-  void initState() {
-    super.initState();
-  }
 
 
   void register() {
     if (formKey.currentState!.validate()) {
-      print(_privateKey);
-      print(_publicKey);
       ApikeyData.putApiKeyData(_publicKey, _privateKey, 'upbit').then((value){
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text("성공적으로 API가 등록되었습니다."),
         ));
         Navigator.pop(context, true);
       });
-      this.privateKeyTE=TextEditingController();
-      this.publicKeyTE=TextEditingController();
+      privateKeyTE=TextEditingController();
+      publicKeyTE=TextEditingController();
     }
   }
 
@@ -62,6 +56,6 @@ class ApiController extends FxController {
 
   @override
   String getTag() {
-    return "register_controller";
+    return "api_register_controller";
   }
 }

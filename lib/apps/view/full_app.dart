@@ -1,3 +1,7 @@
+import 'package:alphabit_front/apps/controller/api_management_controller.dart';
+import 'package:alphabit_front/apps/view/tabs/api_management_screen.dart';
+import 'package:alphabit_front/apps/view/tabs/assets_screen.dart';
+import 'package:alphabit_front/apps/view/tabs/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutx/flutx.dart';
 import 'package:alphabit_front/theme/app_theme.dart';
@@ -5,7 +9,7 @@ import 'package:alphabit_front/theme/custom_theme.dart';
 
 import '../controller/full_app_controller.dart';
 //import '../view/analytics_screen.dart';
-import '../view/home_screen.dart';
+import 'tabs/home_screen.dart';
 //import '../view/profile_screen.dart';
 //import '../view/schedule_screen.dart';
 
@@ -84,10 +88,10 @@ class _FullAppState extends State<FullApp> with SingleTickerProviderStateMixin {
                     physics: ClampingScrollPhysics(),
                     controller: controller.tabController,
                     children: <Widget>[
-                      HomeScreen(),
-                      //ScheduleScreen(),
-                      //AnalyticsScreen(),
-                      //ProfileScreen(),
+                      HomeScreen(), //투자
+                      AssetsScreen(), //자산
+                      ApiManagementScreen(), //API 등록
+                      SettingsScreen(), //설정
                     ],
                   ),
                 ),

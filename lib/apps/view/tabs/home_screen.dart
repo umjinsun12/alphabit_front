@@ -6,7 +6,7 @@ import 'package:alphabit_front/theme/app_theme.dart';
 import 'package:alphabit_front/theme/custom_theme.dart';
 import 'package:alphabit_front/widgets/custom/loading_effect.dart';
 
-import '../controller/home_controller.dart';
+import '../../controller/home_controller.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
